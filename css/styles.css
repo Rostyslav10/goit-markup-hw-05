@@ -61,8 +61,19 @@ html{
     display: flex;
     margin-right: auto;
  }
+ .menu-items.current::after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+        width: 100%;
+        height: 4px;
+    background-color: var(--activ-text-color);
+    border-radius: 2px;
+ }
 
- .menu-items:hover::after
+ .menu-items:hover::after,
+ .menu-items:focus:after
 {
     position: absolute;
     bottom: 0;
@@ -195,11 +206,16 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition-property: opacity;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 .backdrop.is-hidden{
     opacity: 0;
     pointer-events: none;
+
 }
 .modal{
     position: relative;
@@ -244,6 +260,7 @@ display: inline-flex;
     background-color: var(--primery-background-color);
     padding-top: 94px;
     padding-bottom: 94px;
+   
 }
 .features{
 padding-bottom: 0;
@@ -629,13 +646,16 @@ display: inline-block;
     transition-property: transform;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
+   
+
+    
     
     
 }
 .portfolio-link:hover .overlay-text{
     transform: translateY(0);
-    opacity: 1;
+  
+   
     overflow: hidden;
 }
 
